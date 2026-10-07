@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net" modified="2026-07-30T23:00:00.000Z" agent="Cursor" version="22.1.0" type="device">
+  <diagram id="er-colegio" name="ER COLEGIO_APPCOL">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="Modelo ER — COLEGIO_APPCOL (MySQL Docker)" style="text;html=1;fontStyle=1;fontSize=16;align=center;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="420" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="alumnos" value="Alumnos&#xa;PK idAlumnos&#xa;NOMBRE, APELLIDO&#xa;FECHA_NACIMIENTO&#xa;GRADO_ACTUAL..." style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=24;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="profesores" value="Profesores&#xa;PK idPROFESORES&#xa;NOMBRE, APELLIDO&#xa;CORREO, ESPECIALIDAD" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="340" y="100" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="curso" value="Curso&#xa;PK idCurso&#xa;Grado, Jornada&#xa;Nivel, Capacidad" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="600" y="100" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="usuarios" value="Usuarios&#xa;PK idUsuarios&#xa;Nombre_de_Usuario&#xa;ContrasenaHash&#xa;Rol, ID_Persona" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="840" y="100" width="180" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="materia" value="Materia&#xa;PK idMateria&#xa;Codigo, Nombre&#xa;FK ID_Profesor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="340" y="280" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="matriculas" value="Matriculas&#xa;PK idMatriculas&#xa;FK ID_Estudiante&#xa;FK ID_Grado&#xa;Anio, Estado" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="180" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="horarios" value="Horarios&#xa;PK idHorarios&#xa;FK ID_Materia&#xa;FK ID_Profesor&#xa;FK ID_Curso&#xa;Dia, Horas" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="600" y="280" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="notas" value="Notas&#xa;PK idNotas&#xa;FK ID_Estudiante&#xa;FK ID_Materia&#xa;Periodo, Valor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="480" width="180" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="asistencia" value="Asistencia&#xa;PK idAsistencia&#xa;FK ID_Estudiante&#xa;FK ID_Materia&#xa;Fecha, Estado" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="480" width="180" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="pagos" value="Pagos&#xa;PK idPagos&#xa;FK ID_Estudiante&#xa;Concepto, Monto&#xa;Estado, Metodo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="600" y="480" width="180" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r1" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="profesores" target="materia">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="alumnos" target="matriculas">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="curso" target="matriculas">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="materia" target="horarios">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="alumnos" target="notas">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="alumnos" target="asistencia">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r7" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;" edge="1" parent="1" source="alumnos" target="pagos">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r8" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="usuarios" target="alumnos">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

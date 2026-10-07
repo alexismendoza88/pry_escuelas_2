@@ -1,0 +1,92 @@
+/* Angular Material prebuilt theme */
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #f4f7fa;
+  color: #1a1a1a;
+}
+
+/* Form fields: altura normal */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+/* Botones de acción en tablas en fila */
+.table-actions {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  vertical-align: middle;
+}
+
+/* Sidenav: evitar texto cortado (slot de icono vacío en M3) */
+.mat-mdc-nav-list .mat-mdc-list-item .mdc-list-item__start,
+.mat-mdc-nav-list .mat-mdc-list-item .mat-mdc-list-item-icon {
+  display: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+}
+
+.mat-mdc-nav-list .mat-mdc-list-item {
+  padding-left: 16px !important;
+}
+
+.mat-mdc-nav-list .mdc-list-item__content {
+  padding-left: 0 !important;
+}
+
+.page-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1100px) {
+  .page-grid {
+    grid-template-columns: minmax(320px, 1fr) minmax(420px, 1.25fr);
+    align-items: start;
+  }
+}
+
+.page-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.page-form .span2 {
+  grid-column: 1 / -1;
+}
+
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-mdc-card-header {
+  padding-bottom: 0.25rem;
+}
+
+.mat-mdc-table {
+  width: 100%;
+  background: transparent;
+}
